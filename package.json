@@ -8,7 +8,6 @@
   "unpkg": "dist/plugin.js",
   "files": [
     "android/src/main/",
-    "android/build.gradle",
     "dist/",
     "ios/Sources",
     "ios/Tests",
@@ -19,7 +18,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlexisAyalaS/capacitor-mac-address.git.git"
+    "url": "git+https://github.com/AlexisAyalaS/capacitor-mac-address.git"
   },
   "bugs": {
     "url": "https://github.com/AlexisAyalaS/capacitor-mac-address.git/issues"
