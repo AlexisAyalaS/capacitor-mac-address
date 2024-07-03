@@ -1,11 +1,25 @@
 package com.alexisayala.macaddress;
 
-import android.util.Log;
+import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import com.getcapacitor.JSObject;
+import com.getcapacitor.Plugin;
+import com.getcapacitor.PluginCall;
+import com.getcapacitor.annotation.CapacitorPlugin;
 
-public class MacAddressPlugin {
+@CapacitorPlugin(name = "MacAddressPlugin")
+public class MacAddressPlugin extends Plugin {
 
-    public String echo(String value) {
-        Log.i("Echo", value);
-        return value;
+    @PluginMethod
+    public void getMacAddress(PluginCall call) {
+        Context context = getContext();
+        WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        String macAddress = wifiInfo.getMacAddress();
+
+        JSObject ret = new JSObject();
+        ret.put("macAddress", macAddress);
+        call.resolve(ret);
     }
 }
